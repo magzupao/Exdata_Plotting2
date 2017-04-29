@@ -1,5 +1,6 @@
 executePlot2 <- function() {
-  print("Procesa graphic 02")
+  
+  print("Process graphic 02")
   
   typeClass <- class(summaryData)
   if(typeClass == "data.frame"){  
@@ -14,11 +15,11 @@ executePlot2 <- function() {
     source('load_data.R')    
   }  
 
-subdataset <- summaryData[summaryData$fips == "24510", ] 
-png(filename = "figure/plot2.png", width = 480, height = 480, units = "px")
-totalEmissions <- aggregate(subdataset$Emissions, list(subdataset$year), FUN = "sum")
-plot(totalEmissions, type = "l", xlab = "Year", main = "Total Emissions in Baltimore City from 1999 to 2008", ylab = expression('Total PM'[2.5]*" Emission"))
+  subdataset <- summaryData[summaryData$fips == "24510", ] 
+  png(filename = "figure/plot2.png", width = 480, height = 480, units = "px")
+  totalEmissions <- aggregate(subdataset$Emissions, list(subdataset$year), FUN = "sum")
+  plot(totalEmissions, type = "l", xlab = "Year", main = "Total Emissions in Baltimore City from 1999 to 2008", ylab = expression('Total PM'[2.5]*" Emission"))
 
-dev.off()
+  dev.off()
   
 }	

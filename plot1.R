@@ -1,5 +1,6 @@
 executePlot1 <- function() {
-  print("Procesa graphic 01")
+  
+  print("Process graphic 01")
   
   typeClass <- class(summaryData)
   if(typeClass == "data.frame"){  

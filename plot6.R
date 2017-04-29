@@ -1,5 +1,6 @@
 executePlot6 <- function() {
-  print("Procesa graphic 06")
+  
+  print("Process graphic 06")
   
   typeClass <- class(clasificationData)
   if(typeClass == "data.frame"){  
@@ -16,7 +17,7 @@ executePlot6 <- function() {
 
 subdataset <- summaryData[summaryData$fips == "24510"|summaryData$fips == "06037", ]
 library(ggplot2)
-#png(filename = "./figure/plot6.png", width = 480, height = 480, units = "px", bg = "transparent")
+png(filename = "./figure/plot6.png", width = 480, height = 480, units = "px", bg = "transparent")
 motor <- grep("motor", clasificationData$Short.Name, ignore.case = T)
 motor <- clasificationData[motor, ]
 motor <- subdataset[subdataset$SCC %in% motor$SCC, ]
@@ -26,6 +27,6 @@ g + geom_line(stat = "summary", fun.y = "sum") +
     ylab(expression('Total PM'[2.5]*" Emissions")) +
     ggtitle("Comparison of Total Emissions From Motor\n Vehicle Sources in Baltimore City\n and Los Angeles County from 1999 to 2008") +
     scale_colour_discrete(name = "Group", label = c("Los Angeles","Baltimore"))
-#dev.off()
+dev.off()
   
 }	
